@@ -24,7 +24,7 @@ public class Main {
        // System.out.println(output);
         for (int i = 0; i < array.length; i++) {
             try {
-                if (array[i].equals(".")) {
+                if (array[i].equals(".") || array[i].equals("?") || array[i].equals("!")) {
                     j=2;
                     if(array[i+2].equals(" ")){
                         j = 3;
