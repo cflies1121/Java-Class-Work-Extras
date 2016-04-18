@@ -11,6 +11,7 @@ public class Main {
     }
 
     /**
+     *
      * Converts inputed sentence to proper uppercase form.
      * @param input the sentence to be checked.
      * @return the corrected sentence.
