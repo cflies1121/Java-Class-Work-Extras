@@ -8,25 +8,55 @@ public class Movie {
     private String title;
     private int releaseYear;
 
+    /**
+     * Constructor for a new movie
+     * @param title title of the movie.
+     * @param releaseYear the release year of the movie
+     */
     public Movie(String title, int releaseYear){
         this.title = title;
         this.releaseYear = releaseYear;
     }
 
+    /**
+     * 
+     * @return the title of the movie.
+     */
     public String getTitle (){
         return this.title;
     }
 
+    /**
+     * Changes or sets the title of the movie.
+     * @param title the title of the movie.
+     */
     public void setTitle(String title){
         this.title = title;
     }
 
+    /**
+     *
+     * @return the release year of the movie.
+     */
     public int getReleaseYear(){
         return this.releaseYear;
     }
 
+    /**
+     * Changes or sets the release year of the movie.
+     * @param releaseYear the release year of the movie.
+     */
     public void setReleaseYear(int releaseYear){
         this.releaseYear = releaseYear;
+    }
+
+    /**
+     * Overides the default toString method.
+     * @return The movie name and release year.
+     */
+    @Override
+    public String toString(){
+        return ("Movie Name: " + getTitle() + "\nRelease Year: " + getReleaseYear());
     }
 }
 
