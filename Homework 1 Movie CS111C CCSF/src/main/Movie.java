@@ -19,7 +19,7 @@ public class Movie {
     }
 
     /**
-     * 
+     *
      * @return the title of the movie.
      */
     public String getTitle (){
@@ -57,6 +57,18 @@ public class Movie {
     @Override
     public String toString(){
         return ("Movie Name: " + getTitle() + "\nRelease Year: " + getReleaseYear());
+    }
+
+    @Override
+    public boolean equals(Object object){
+        final Movie movie = (Movie) object;
+        String movieTitle1 = this.getTitle().toLowerCase();
+        String movieTitle2 = movie.getTitle().toLowerCase();
+        if(movieTitle1.equals(movieTitle2)){
+            return true;
+        }
+        return false;
+
     }
 }
 
