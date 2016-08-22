@@ -19,6 +19,15 @@ public class Movie {
     }
 
     /**
+     * Constructor for a new movie with a default year of 2015.
+     * @param title the title of the movie
+     */
+    public Movie(String title){
+        this.title = title;
+        this.releaseYear = 2015;
+    }
+
+    /**
      *
      * @return the title of the movie.
      */
@@ -47,11 +56,14 @@ public class Movie {
      * @param releaseYear the release year of the movie.
      */
     public void setReleaseYear(int releaseYear){
+        if(releaseYear>9999 || releaseYear<1000){
+            System.out.println("Invalid year");
+        }
         this.releaseYear = releaseYear;
     }
 
     /**
-     * Overides the default toString method.
+     * Overrides the default toString method.
      * @return The movie name and release year.
      */
     @Override
@@ -59,12 +71,17 @@ public class Movie {
         return ("Movie Name: " + getTitle() + "\nRelease Year: " + getReleaseYear());
     }
 
+    /**
+     * Overrides the equals method to compare movie titles reguardless of case
+     * @param object the movie that is being compared
+     * @return whether the movie titles are equivalent.
+     */
     @Override
     public boolean equals(Object object){
-        final Movie movie = (Movie) object;
-        String movieTitle1 = this.getTitle().toLowerCase();
-        String movieTitle2 = movie.getTitle().toLowerCase();
-        if(movieTitle1.equals(movieTitle2)){
+        final Movie movie = (Movie) object;// establishes the object as a movie in order to get proper methods
+        String movieTitle1 = this.getTitle().toLowerCase();// changes the title to lowercase for comparison
+        String movieTitle2 = movie.getTitle().toLowerCase();// same as above
+        if(movieTitle1.equals(movieTitle2)){// compares the two titles as lowercase strings now
             return true;
         }
         return false;
