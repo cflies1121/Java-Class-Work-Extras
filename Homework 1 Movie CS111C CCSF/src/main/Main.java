@@ -6,7 +6,11 @@ package main;
 public class Main {
 
     public static void main(String[] args) {
-        int numberOfMovies = 4;
+
+        String a = "dujjjcon";
+        String b = "acorn";
+        System.out.println(b.compareToIgnoreCase(a));
+        /*int numberOfMovies = 4;
         //establish array
         Movie[] movies = new Movie[numberOfMovies];
         //add array elements fyi movie dates are not accurate
@@ -25,6 +29,7 @@ public class Main {
                System.out.println(movies[i].toString());//if not a documentary prints the title and year
            }
 
-       }
+       }*/
     }
 }
+
