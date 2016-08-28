@@ -1,9 +1,9 @@
 package com.example.main;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Created by codysmac on 8/26/16.
@@ -87,18 +87,37 @@ public class Trio<T extends Comparable<? super T>> implements Comparable<Trio<T>
         else{
             return 1;
         }*/
-        int i;
-        for (i = 0; i < this.list.size(); i++) {
-            if (this.list.get(i).compareTo(otherTrio.list.get(i)) != 0) {
-                break;
+        /*int value1 = 0, value2 = 0, value3 = 0;
+        for (int i = 0; i < this.list.size(); i++) {
+            System.out.println(this.list.get(i) + " = " + otherTrio.list.get(i));
+            if(this.list.get(i).compareTo(otherTrio.list.get(i))==0){
+                value1 = 0;
             }
-        }
-        return this.list.get(i).compareTo(otherTrio.list.get(i));
+            if(this.list.get(i).compareTo(otherTrio.list.get(i))>0){
+                value2 += 100;
+            }
+            if (this.list.get(i).compareTo(otherTrio.list.get(i))<0){
+                value3 += -100;
+            }
+            System.out.println(("list.compare = " + this.list.get(i).compareTo(otherTrio.list.get(i)) + " value1 = " + value1
+                    + " value2 " + value2 + " value3 " + value3 + " i " + i));
+
+
+        }*/
+        return smallestOf(this.list).compareTo(smallestOf(otherTrio.list));
     }
+    private T smallestOf(ArrayList<T> list){
+        Collections.sort(list);
+        /*for(int i = 0; i<3; i++){
+            System.out.println(list.get(i) + " list item " + i + " int smallest of method");
+        }*/
+        return list.get(0);
+    }
+
 
     @Override
     public boolean equals(Object o) {
-        boolean sameItem1 = false, sameItem2 = false, sameItem3 = false;
+        boolean sameItem1 = false;//, sameItem2 = false, sameItem3 = false;
         int count = 0;
         if(o instanceof Trio<?>) {
             Trio<?> otherTrio = (Trio<?>) o;
@@ -107,34 +126,35 @@ public class Trio<T extends Comparable<? super T>> implements Comparable<Trio<T>
             for(int i = 0; i<this.list.size(); i++) {
                 temp1.add(this.list.get(i));
                 temp2.add((T) otherTrio.list.get(i));
-                System.out.println("temp one list# " + i + " is " + temp1.get(i));
-                System.out.println("temp two list# " + i + " is " + temp2.get(i));
+                //System.out.println("temp one list# " + i + " is " + temp1.get(i));
+                //System.out.println("temp two list# " + i + " is " + temp2.get(i));
             }
             Collections.sort(temp1);
             Collections.sort(temp2);
-            for(int i = 0; i<3; i++) {
-                System.out.println("after sort, temp one is # " + i + " is " + temp1.get(i));
-                System.out.println("after sort, temp two is # " + i + " is " + temp2.get(i));
-            }
+            //for(int i = 0; i<3; i++) {
+                //System.out.println("after sort, temp one is # " + i + " is " + temp1.get(i));
+                //System.out.println("after sort, temp two is # " + i + " is " + temp2.get(i));
+            //}
 
             for (int i = 0; i<temp1.size(); i++){
-                if(this.list.get(i).equals(otherTrio.list.get(i))){
+                if(temp1.get(i).equals(temp2.get(i))){
                     count++;
-                    System.out.println(temp1.get(i) + " = " + temp2.get(i) + " on number " + i + " the value of count is" + count);
+                    //System.out.println(temp1.get(i) + " = " + temp2.get(i) + " on number " + i + " the value of count is" + count);
                 }
             }
-            System.out.println(sameItem1 + " " + sameItem2 + " " + sameItem3 + " before count check");
+            //System.out.println(sameItem1 + " " + sameItem2 + " " + sameItem3 + " count = " + count + " before count check");
             if(count == 3){
                 sameItem1 = true;
-                sameItem2 = true;
-                sameItem3 = true;
+                //sameItem2 = true;
+                //sameItem3 = true;
+                //System.out.println("value of count " + count);
             }
-            System.out.println(sameItem1 + " " + sameItem2 + " " + sameItem3 + " after count check");
+            //System.out.println(sameItem1 + " " + sameItem2 + " " + sameItem3 + " after count check");
 
 
 
 
-            return sameItem1 && sameItem2 && sameItem3;
+            return sameItem1 ;//&& sameItem2 && sameItem3;
         }
         else{
             return false;

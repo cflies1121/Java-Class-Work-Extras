@@ -63,7 +63,7 @@ public class Main {
         System.out.println("Trios the same? Should be false: " + numberTrio4.equals(numberTrio5));
 
 		/* un-comment if completing the extra credit */
-/*
+
         Trio<Integer> numberTrio6 = new Trio<Integer>(5, 6, 8);
         Trio<Integer> numberTrio7 = new Trio<Integer>(7, 2, 5);
         System.out.println("Trio6 is larger- should be a positive number: " + numberTrio6.compareTo(numberTrio7));
@@ -82,6 +82,6 @@ public class Main {
         Trio<String> wordTrio6 = new Trio<String>("apple", "banana", "carrot");
         Trio<String> wordTrio7 = new Trio<String>("lemon", "melon", "apple");
         System.out.println("WordTrio2 is not smaller or larger- should be 0: " + wordTrio6.compareTo(wordTrio7));
-*/
+
     }
 }
